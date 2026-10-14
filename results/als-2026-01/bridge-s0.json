@@ -1,0 +1,565 @@
+{
+ "task": "als-2026-01",
+ "agent": "bridge",
+ "seed": 0,
+ "model": "claude-sonnet-4-5",
+ "judged": true,
+ "at": "2026-10-14T09:47:00+00:00",
+ "agent_usd": 1.3585,
+ "judge_usd": 0.0,
+ "agent_api_calls": 125,
+ "n": 20,
+ "valid": 20,
+ "novel": 20,
+ "emerged": 0,
+ "confirmed": 0,
+ "contradicted": 0,
+ "mech_score": 0.0,
+ "score": 0.0,
+ "brier": 0.4632,
+ "rows": [
+  {
+   "a": "mitochondrial-derived vesicles | MDVs",
+   "b": "motor axonopathy",
+   "relation": "prevents",
+   "mechanism": "MDVs transport damaged mitochondrial components for lysosomal degradation; their impairment by SOD1 mutations causes distal accumulation of dysfunctional mitochondria in axons, driving length-dependent degeneration",
+   "support_ids": [
+    "W4388974064",
+    "W2040891140",
+    "W2156071702",
+    "W2105744357"
+   ],
+   "confidence": 0.8,
+   "bridge": [
+    "mitochondrial \u00b7 intermembrane space \u00b7 bioenergetic",
+    "flies \u00b7 drosophila melanogaster \u00b7 zebrafish",
+    1.0
+   ],
+   "pre": 0,
+   "post": 0,
+   "n_a": 4,
+   "n_b": 18,
+   "valid": true,
+   "novel": true,
+   "emerged": false,
+   "surprise": 7.526,
+   "mech_score": 0.0,
+   "score": 0.0
+  },
+  {
+   "a": "mGluR5 | mGlu5",
+   "b": "cortical hyperexcitability",
+   "relation": "modulates",
+   "mechanism": "Astrocytic mGluR5 signaling regulates glutamate homeostasis and astrocyte reactivity, thereby modulating cortical neuronal excitability and potentially dampening hyperexcitability when inhibited",
+   "support_ids": [
+    "W6961600053",
+    "W1971279713",
+    "W4413100257",
+    "W1996576454"
+   ],
+   "confidence": 0.75,
+   "bridge": [
+    "astrocytes \u00b7 mGluR5 \u00b7 reactive phenotype",
+    "excitability \u00b7 hyperexcitability \u00b7 cortical",
+    1.0
+   ],
+   "pre": 0,
+   "post": 0,
+   "n_a": 34,
+   "n_b": 101,
+   "valid": true,
+   "novel": true,
+   "emerged": false,
+   "surprise": 5.951,
+   "mech_score": 0.0,
+   "score": 0.0
+  },
+  {
+   "a": "manganese",
+   "b": "ultrafine particles",
+   "relation": "potentiation",
+   "mechanism": "Ultrafine particle carrier effect enhances manganese blood-brain barrier penetration and mitochondrial accumulation in motor neurons",
+   "support_ids": [
+    "W4283653446",
+    "W1976429280",
+    "W3197719238"
+   ],
+   "confidence": 0.74,
+   "bridge": [
+    "parkinsonism-dementia \u00b7 chamorros \u00b7 kii peninsula",
+    "air pollution \u00b7 particulate matter \u00b7 long-term exposure",
+    1.0
+   ],
+   "pre": 0,
+   "post": 0,
+   "n_a": 146,
+   "n_b": 6,
+   "valid": true,
+   "novel": true,
+   "emerged": false,
+   "surprise": 6.491,
+   "mech_score": 0.0,
+   "score": 0.0
+  },
+  {
+   "a": "intestinal permeability | leaky gut",
+   "b": "insulin resistance",
+   "relation": "promotes",
+   "mechanism": "Compromised gut barrier allows bacterial lipopolysaccharide translocation, triggering systemic inflammation via TLR4 signaling that impairs insulin receptor substrate phosphorylation in peripheral tissues and CNS",
+   "support_ids": [
+    "W2096776344",
+    "W4412070679",
+    "W2759952551"
+   ],
+   "confidence": 0.72,
+   "bridge": [
+    "amyotrophic lateral \u00b7 motor neurons \u00b7 ALS pathogenesis",
+    "autism spectrum disorder \u00b7 children \u00b7 neurodevelopmental",
+    1.0
+   ],
+   "pre": 0,
+   "post": 0,
+   "n_a": 16,
+   "n_b": 97,
+   "valid": true,
+   "novel": true,
+   "emerged": false,
+   "surprise": 6.282,
+   "mech_score": 0.0,
+   "score": 0.0
+  },
+  {
+   "a": "S-nitrosylated GAPDH | SNO-GAPDH",
+   "b": "iPSC motor neurons",
+   "relation": "biomarker in",
+   "mechanism": "S-nitrosylated GAPDH levels, which mediate apoptosis in mutant SOD1 rodent models, serve as quantitative biomarker of disease progression in human iPSC-derived motor neurons",
+   "support_ids": [
+    "W2558146294",
+    "W2101687573"
+   ],
+   "confidence": 0.7,
+   "bridge": [
+    "MTT \u00b7 neuronal death \u00b7 activity",
+    "stem cell \u00b7 iPSCs \u00b7 human induced",
+    1.0
+   ],
+   "pre": 0,
+   "post": 0,
+   "n_a": 1,
+   "n_b": 28,
+   "valid": true,
+   "novel": true,
+   "emerged": false,
+   "surprise": 7.74,
+   "mech_score": 0.0,
+   "score": 0.0
+  },
+  {
+   "a": "hexokinase 1 | HK1",
+   "b": "iPSC-derived motor neurons",
+   "relation": "HK1 modulation rescues bioenergetic defects in human motor neurons",
+   "mechanism": "Hexokinase 1 peptide prevents toxic SOD1 mitochondrial accumulation and restores ATP production in patient-derived iPSC motor neurons",
+   "support_ids": [
+    "W3187227029",
+    "W2037438288",
+    "W2101687573"
+   ],
+   "confidence": 0.7,
+   "bridge": [
+    "mitochondrial \u00b7 intermembrane space \u00b7 bioenergetic",
+    "stem cell \u00b7 iPSCs \u00b7 human induced",
+    1.0
+   ],
+   "pre": 0,
+   "post": 0,
+   "n_a": 5,
+   "n_b": 462,
+   "valid": true,
+   "novel": true,
+   "emerged": false,
+   "surprise": 6.06,
+   "mech_score": 0.0,
+   "score": 0.0
+  },
+  {
+   "a": "FOXO",
+   "b": "HSPB8",
+   "relation": "upregulates",
+   "mechanism": "FOXO transcription factors induce HSPB8 expression as part of the proteostasis network during aging and stress responses",
+   "support_ids": [
+    "W2089145020",
+    "W4414382165",
+    "W2116896548",
+    "W2035901470"
+   ],
+   "confidence": 0.7,
+   "bridge": [
+    "elegans \u00b7 parkinson's disease \u00b7 aging",
+    "HSPB8 \u00b7 bulbar muscular \u00b7 shock protein b8",
+    0.999
+   ],
+   "pre": 0,
+   "post": 0,
+   "n_a": 36,
+   "n_b": 42,
+   "valid": true,
+   "novel": true,
+   "emerged": false,
+   "surprise": 6.302,
+   "mech_score": 0.0,
+   "score": 0.0
+  },
+  {
+   "a": "amyloid oligomers",
+   "b": "trehalose",
+   "relation": "reduced_by",
+   "mechanism": "Trehalose-enhanced autophagy via TFEB activation preferentially clears toxic oligomeric protein species",
+   "support_ids": [
+    "W1566888064",
+    "W2897648707",
+    "W4415718804",
+    "W4414288054"
+   ],
+   "confidence": 0.7,
+   "bridge": [
+    "elegans \u00b7 parkinson's disease \u00b7 aging",
+    "HSPB8 \u00b7 bulbar muscular \u00b7 shock protein b8",
+    0.999
+   ],
+   "pre": 0,
+   "post": 0,
+   "n_a": 17,
+   "n_b": 28,
+   "valid": true,
+   "novel": true,
+   "emerged": false,
+   "surprise": 6.786,
+   "mech_score": 0.0,
+   "score": 0.0
+  },
+  {
+   "a": "BMAA | beta-methylamino-L-alanine",
+   "b": "PM2.5",
+   "relation": "synergistic",
+   "mechanism": "PM2.5 transition metals enhance BMAA misincorporation into neuronal proteins; combined oxidative stress overwhelms protein quality control in motor neurons",
+   "support_ids": [
+    "W2803511199",
+    "W7027974699",
+    "W4220911198",
+    "W3197719238"
+   ],
+   "confidence": 0.68,
+   "bridge": [
+    "parkinsonism-dementia \u00b7 chamorros \u00b7 kii peninsula",
+    "air pollution \u00b7 particulate matter \u00b7 long-term exposure",
+    1.0
+   ],
+   "pre": 0,
+   "post": 0,
+   "n_a": 211,
+   "n_b": 18,
+   "valid": true,
+   "novel": true,
+   "emerged": false,
+   "surprise": 5.899,
+   "mech_score": 0.0,
+   "score": 0.0
+  },
+  {
+   "a": "parietal cortex",
+   "b": "p62 | sequestosome-1",
+   "relation": "dysfunction driven by inclusion burden in",
+   "mechanism": "p62-positive cytoplasmic inclusion density in superior parietal neurons correlates with altered EEG responses and functional connectivity disruptions in the parietal network",
+   "support_ids": [
+    "W4412653533",
+    "W2066002405",
+    "W7119869362"
+   ],
+   "confidence": 0.66,
+   "bridge": [
+    "superior \u00b7 volume \u00b7 bilateral",
+    "hippocampus \u00b7 cytoplasmic inclusions \u00b7 granule cells",
+    1.0
+   ],
+   "pre": 0,
+   "post": 0,
+   "n_a": 58,
+   "n_b": 539,
+   "valid": true,
+   "novel": true,
+   "emerged": false,
+   "surprise": 5.001,
+   "mech_score": 0.0,
+   "score": 0.0
+  },
+  {
+   "a": "mitochondrial-derived vesicles | MDVs",
+   "b": "neurofilament",
+   "relation": "MDV impairment causes neurofilament dysregulation",
+   "mechanism": "Defective mitochondrial quality control via MDVs disrupts cytoskeletal protein homeostasis including neurofilament assembly and transport",
+   "support_ids": [
+    "W4388974064",
+    "W2037438288"
+   ],
+   "confidence": 0.65,
+   "bridge": [
+    "mitochondrial \u00b7 intermembrane space \u00b7 bioenergetic",
+    "stem cell \u00b7 iPSCs \u00b7 human induced",
+    1.0
+   ],
+   "pre": 0,
+   "post": 0,
+   "n_a": 4,
+   "n_b": 1352,
+   "valid": true,
+   "novel": true,
+   "emerged": false,
+   "surprise": 5.674,
+   "mech_score": 0.0,
+   "score": 0.0
+  },
+  {
+   "a": "hexokinase 1 | HK1",
+   "b": "synaptic dysfunction",
+   "relation": "prevents",
+   "mechanism": "HK1 blocks toxic SOD1 recruitment to mitochondria at synaptic terminals, maintaining local ATP production and calcium buffering required for neurotransmitter release",
+   "support_ids": [
+    "W3187227029",
+    "W2039004975"
+   ],
+   "confidence": 0.65,
+   "bridge": [
+    "mitochondrial \u00b7 intermembrane space \u00b7 bioenergetic",
+    "flies \u00b7 drosophila melanogaster \u00b7 zebrafish",
+    1.0
+   ],
+   "pre": 0,
+   "post": 0,
+   "n_a": 5,
+   "n_b": 141,
+   "valid": true,
+   "novel": true,
+   "emerged": false,
+   "surprise": 6.573,
+   "mech_score": 0.0,
+   "score": 0.0
+  },
+  {
+   "a": "YAP | YAP1",
+   "b": "cortical hyperexcitability",
+   "relation": "suppresses",
+   "mechanism": "Astrocytic YAP activates Wnt/\u03b2-catenin signaling to upregulate EAAT2 glutamate transporter expression, enhancing glutamate clearance and suppressing cortical hyperexcitability",
+   "support_ids": [
+    "W4412943440",
+    "W4413100257",
+    "W2047867249"
+   ],
+   "confidence": 0.65,
+   "bridge": [
+    "astrocytes \u00b7 mGluR5 \u00b7 reactive phenotype",
+    "excitability \u00b7 hyperexcitability \u00b7 cortical",
+    1.0
+   ],
+   "pre": 0,
+   "post": 0,
+   "n_a": 13,
+   "n_b": 101,
+   "valid": true,
+   "novel": true,
+   "emerged": false,
+   "surprise": 6.349,
+   "mech_score": 0.0,
+   "score": 0.0
+  },
+  {
+   "a": "gamma-H2AX | \u03b3H2AX",
+   "b": "neurofilament heavy | NEFH",
+   "relation": "DNA damage correlates with phosphorylation of",
+   "mechanism": "Chromosome instability in Drosophila SOD1 neurons activates DNA damage-responsive kinases that also hyperphosphorylate neurofilament heavy chain, driving perikaryal accumulation",
+   "support_ids": [
+    "W4394997903",
+    "W2037438288"
+   ],
+   "confidence": 0.65,
+   "bridge": [
+    "flies \u00b7 drosophila melanogaster \u00b7 zebrafish",
+    "stem cell \u00b7 iPSCs \u00b7 human induced",
+    1.0
+   ],
+   "pre": 0,
+   "post": 0,
+   "n_a": 11,
+   "n_b": 208,
+   "valid": true,
+   "novel": true,
+   "emerged": false,
+   "surprise": 6.105,
+   "mech_score": 0.0,
+   "score": 0.0
+  },
+  {
+   "a": "synaptic boutons | boutons",
+   "b": "neurofilament light | NEFL",
+   "relation": "bouton degeneration precedes dysregulation of",
+   "mechanism": "Presynaptic terminal loss in C. elegans and Drosophila SOD1 models eliminates retrograde trophic signals that normally suppress neurofilament light chain overexpression in motor neuron somata",
+   "support_ids": [
+    "W2052841243",
+    "W2039004975",
+    "W2037438288"
+   ],
+   "confidence": 0.65,
+   "bridge": [
+    "flies \u00b7 drosophila melanogaster \u00b7 zebrafish",
+    "stem cell \u00b7 iPSCs \u00b7 human induced",
+    1.0
+   ],
+   "pre": 0,
+   "post": 0,
+   "n_a": 88,
+   "n_b": 533,
+   "valid": true,
+   "novel": true,
+   "emerged": false,
+   "surprise": 4.827,
+   "mech_score": 0.0,
+   "score": 0.0
+  },
+  {
+   "a": "mitophagy",
+   "b": "metabolic connectivity",
+   "relation": "mitophagy impairment alters",
+   "mechanism": "Defective mitochondrial clearance in C9orf72 neurons reduces ATP production and glucose metabolism, manifesting as disrupted brain metabolic network patterns on FDG-PET",
+   "support_ids": [
+    "W4408230459",
+    "W4417224346",
+    "W2069443367",
+    "W2903139876"
+   ],
+   "confidence": 0.65,
+   "bridge": [
+    "cells \u00b7 pluripotent stem \u00b7 microglia",
+    "superior \u00b7 volume \u00b7 bilateral",
+    1.0
+   ],
+   "pre": 0,
+   "post": 0,
+   "n_a": 266,
+   "n_b": 3,
+   "valid": true,
+   "novel": true,
+   "emerged": false,
+   "surprise": 6.475,
+   "mech_score": 0.0,
+   "score": 0.0
+  },
+  {
+   "a": "methylglyoxal",
+   "b": "zebrafish",
+   "relation": "exacerbates",
+   "mechanism": "Methylglyoxal-induced glycation stress amplifies TDP-43 pathology and motor axonopathy in zebrafish ALS models",
+   "support_ids": [
+    "W4414559017",
+    "W2156071702",
+    "W2105744357"
+   ],
+   "confidence": 0.65,
+   "bridge": [
+    "disorder \u00b7 genetic \u00b7 FUS",
+    "flies \u00b7 drosophila melanogaster \u00b7 zebrafish",
+    1.0
+   ],
+   "pre": 0,
+   "post": 0,
+   "n_a": 8,
+   "n_b": 462,
+   "valid": true,
+   "novel": true,
+   "emerged": false,
+   "surprise": 5.884,
+   "mech_score": 0.0,
+   "score": 0.0
+  },
+  {
+   "a": "long non-coding RNAs | lncRNAs",
+   "b": "TFEB",
+   "relation": "regulates",
+   "mechanism": "Specific lncRNAs modulate TFEB expression or nuclear translocation to control autophagy in motor neurons",
+   "support_ids": [
+    "W4407416812",
+    "W2897648707",
+    "W4414382165",
+    "W4313446499"
+   ],
+   "confidence": 0.65,
+   "bridge": [
+    "elegans \u00b7 parkinson's disease \u00b7 aging",
+    "HSPB8 \u00b7 bulbar muscular \u00b7 shock protein b8",
+    0.999
+   ],
+   "pre": 0,
+   "post": 0,
+   "n_a": 84,
+   "n_b": 69,
+   "valid": true,
+   "novel": true,
+   "emerged": false,
+   "surprise": 5.729,
+   "mech_score": 0.0,
+   "score": 0.0
+  },
+  {
+   "a": "growth hormone | GH",
+   "b": "iPSC motor neurons",
+   "relation": "protects",
+   "mechanism": "Growth hormone, which protects rodent motor neurons from mutant SOD1 toxicity, prevents degeneration in human iPSC-derived motor neurons through activation of pro-survival signaling pathways",
+   "support_ids": [
+    "W1971621303",
+    "W2037438288"
+   ],
+   "confidence": 0.62,
+   "bridge": [
+    "MTT \u00b7 neuronal death \u00b7 activity",
+    "stem cell \u00b7 iPSCs \u00b7 human induced",
+    1.0
+   ],
+   "pre": 0,
+   "post": 0,
+   "n_a": 76,
+   "n_b": 28,
+   "valid": true,
+   "novel": true,
+   "emerged": false,
+   "surprise": 6.155,
+   "mech_score": 0.0,
+   "score": 0.0
+  },
+  {
+   "a": "aluminum",
+   "b": "nitrogen dioxide | NO2",
+   "relation": "synergistic",
+   "mechanism": "Aluminum-induced neuroinflammation sensitizes motor neurons to NO2-derived reactive nitrogen species; combined exposure amplifies endoplasmic reticulum stress",
+   "support_ids": [
+    "W1976429280",
+    "W2803511199",
+    "W2759180707",
+    "W2035036234"
+   ],
+   "confidence": 0.61,
+   "bridge": [
+    "parkinsonism-dementia \u00b7 chamorros \u00b7 kii peninsula",
+    "air pollution \u00b7 particulate matter \u00b7 long-term exposure",
+    1.0
+   ],
+   "pre": 0,
+   "post": 0,
+   "n_a": 135,
+   "n_b": 26,
+   "valid": true,
+   "novel": true,
+   "emerged": false,
+   "surprise": 5.939,
+   "mech_score": 0.0,
+   "score": 0.0
+  }
+ ]
+}
