@@ -1,0 +1,59 @@
+{
+ "task": "als-2026-01",
+ "agent": "random",
+ "seed": 1,
+ "n": 500,
+ "at": "2026-10-14T11:39:19+00:00",
+ "usd": 0.0,
+ "auc": 0.4026,
+ "auc_ci": [
+  0.2713,
+  0.538
+ ],
+ "ap": 0.0507,
+ "base_rate": 0.056,
+ "p_at_50": 0.04,
+ "p_at_100": 0.04,
+ "top10": [
+  [
+   "electromyography",
+   "electron transport"
+  ],
+  [
+   "magnetic resonance imaging",
+   "processing bodies"
+  ],
+  [
+   "occupational exposure",
+   "amyloidosis"
+  ],
+  [
+   "dna damage",
+   "respiratory insufficiency"
+  ],
+  [
+   "autophagosomes",
+   "autism spectrum disorder"
+  ],
+  [
+   "tdp-43 proteinopathies",
+   "lung"
+  ],
+  [
+   "cytosol",
+   "ireland"
+  ],
+  [
+   "palliative care",
+   "glial fibrillary acidic"
+  ],
+  [
+   "metabolome",
+   "gold"
+  ],
+  [
+   "immunohistochemistry",
+   "pesticides"
+  ]
+ ]
+}

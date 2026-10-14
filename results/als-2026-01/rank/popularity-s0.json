@@ -1,0 +1,59 @@
+{
+ "task": "als-2026-01",
+ "agent": "popularity",
+ "seed": 0,
+ "n": 500,
+ "at": "2026-10-14T11:39:21+00:00",
+ "usd": 0.0,
+ "auc": 0.5205,
+ "auc_ci": [
+  0.4275,
+  0.6119
+ ],
+ "ap": 0.0575,
+ "base_rate": 0.056,
+ "p_at_50": 0.04,
+ "p_at_100": 0.04,
+ "top10": [
+  [
+   "stress granules",
+   "ventilation"
+  ],
+  [
+   "frontotemporal lobar degeneration",
+   "dysbiosis"
+  ],
+  [
+   "neurofilament",
+   "occupational exposure"
+  ],
+  [
+   "stress granules",
+   "pain"
+  ],
+  [
+   "stress granules",
+   "free radicals"
+  ],
+  [
+   "microbiota",
+   "genetic testing"
+  ],
+  [
+   "autophagy",
+   "tracheostomy"
+  ],
+  [
+   "tau",
+   "occupational exposure"
+  ],
+  [
+   "stress granules",
+   "apathy"
+  ],
+  [
+   "stress granules",
+   "england"
+  ]
+ ]
+}

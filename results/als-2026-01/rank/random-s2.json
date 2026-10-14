@@ -1,0 +1,59 @@
+{
+ "task": "als-2026-01",
+ "agent": "random",
+ "seed": 2,
+ "n": 500,
+ "at": "2026-10-14T11:39:20+00:00",
+ "usd": 0.0,
+ "auc": 0.5888,
+ "auc_ci": [
+  0.4765,
+  0.7026
+ ],
+ "ap": 0.0806,
+ "base_rate": 0.056,
+ "p_at_50": 0.06,
+ "p_at_100": 0.08,
+ "top10": [
+  [
+   "physicians",
+   "cysteine"
+  ],
+  [
+   "microtubule-associated",
+   "tracheostomy"
+  ],
+  [
+   "copper",
+   "monocytes"
+  ],
+  [
+   "pesticides",
+   "anterior horn cells"
+  ],
+  [
+   "neurofibrillary tangles",
+   "body mass index"
+  ],
+  [
+   "proteostasis",
+   "macrophages"
+  ],
+  [
+   "neurites",
+   "respiratory muscles"
+  ],
+  [
+   "aphasia",
+   "axonal transport"
+  ],
+  [
+   "frontal lobe",
+   "manganese"
+  ],
+  [
+   "permeability",
+   "sample size"
+  ]
+ ]
+}

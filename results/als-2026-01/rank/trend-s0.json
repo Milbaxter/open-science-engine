@@ -1,0 +1,59 @@
+{
+ "task": "als-2026-01",
+ "agent": "trend",
+ "seed": 0,
+ "n": 500,
+ "at": "2026-10-14T11:39:21+00:00",
+ "usd": 0.0,
+ "auc": 0.6209,
+ "auc_ci": [
+  0.5248,
+  0.7097
+ ],
+ "ap": 0.0767,
+ "base_rate": 0.056,
+ "p_at_50": 0.06,
+ "p_at_100": 0.07,
+ "top10": [
+  [
+   "drug development",
+   "dysbiosis"
+  ],
+  [
+   "sodium",
+   "lipid metabolism"
+  ],
+  [
+   "frontotemporal lobar degeneration",
+   "dysbiosis"
+  ],
+  [
+   "proteostasis",
+   "macrophages"
+  ],
+  [
+   "microbiota",
+   "genetic testing"
+  ],
+  [
+   "edaravone",
+   "huntingtin"
+  ],
+  [
+   "nitrogen",
+   "gold"
+  ],
+  [
+   "fatty acids",
+   "zebrafish"
+  ],
+  [
+   "dysbiosis",
+   "genetic testing"
+  ],
+  [
+   "edaravone",
+   "haploinsufficiency"
+  ]
+ ]
+}

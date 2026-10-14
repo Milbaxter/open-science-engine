@@ -1,0 +1,59 @@
+{
+ "task": "als-2026-01",
+ "agent": "llm",
+ "seed": 0,
+ "n": 500,
+ "at": "2026-10-14T11:48:32+00:00",
+ "usd": 0.6584,
+ "auc": 0.5501,
+ "auc_ci": [
+  0.4283,
+  0.6611
+ ],
+ "ap": 0.0719,
+ "base_rate": 0.056,
+ "p_at_50": 0.08,
+ "p_at_100": 0.08,
+ "top10": [
+  [
+   "macroautophagy",
+   "intrinsically disordered"
+  ],
+  [
+   "anterior horn cells",
+   "macroautophagy"
+  ],
+  [
+   "stress granules",
+   "free radicals"
+  ],
+  [
+   "rna-seq",
+   "mitochondrial dynamics"
+  ],
+  [
+   "phase separation",
+   "iron"
+  ],
+  [
+   "proteomics",
+   "muscle strength"
+  ],
+  [
+   "mitophagy",
+   "neuromuscular diseases"
+  ],
+  [
+   "nucleocytoplasmic transport",
+   "extracellular vesicles"
+  ],
+  [
+   "drug development",
+   "exome sequencing"
+  ],
+  [
+   "immune system",
+   "intrinsically disordered"
+  ]
+ ]
+}

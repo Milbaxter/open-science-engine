@@ -89,7 +89,8 @@ def run_rank(task: Task, agent: str, seed: int = 0) -> dict:
     res = {"task": task.id, "agent": agent, "seed": seed, "n": len(pairs),
            "at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
            "usd": round(TOTAL_COST["usd"], 4), **metrics(scores, labels, seed),
-           "top10": [pairs[i] for i in np.argsort(-np.asarray(scores, float), kind="mergesort")[:10]]}
+           "top10": [pairs[i] for i in np.argsort(-np.asarray(scores, float), kind="mergesort")[:10]],
+           "scores": [round(float(x), 5) for x in scores]}
     d = ROOT / "results" / task.id / "rank"
     d.mkdir(parents=True, exist_ok=True)
     (d / f"{agent}-s{seed}.json").write_text(json.dumps(res, indent=1))

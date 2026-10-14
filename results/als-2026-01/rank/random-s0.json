@@ -1,0 +1,59 @@
+{
+ "task": "als-2026-01",
+ "agent": "random",
+ "seed": 0,
+ "n": 500,
+ "at": "2026-10-14T11:39:19+00:00",
+ "usd": 0.0,
+ "auc": 0.4719,
+ "auc_ci": [
+  0.3473,
+  0.5936
+ ],
+ "ap": 0.0604,
+ "base_rate": 0.056,
+ "p_at_50": 0.06,
+ "p_at_100": 0.06,
+ "top10": [
+  [
+   "cytoskeletal",
+   "gastrostomy"
+  ],
+  [
+   "autophagy",
+   "tracheostomy"
+  ],
+  [
+   "dysbiosis",
+   "data collection"
+  ],
+  [
+   "vital capacity",
+   "gene silencing"
+  ],
+  [
+   "rna splicing",
+   "choline"
+  ],
+  [
+   "bias",
+   "eukaryotic cells"
+  ],
+  [
+   "copper",
+   "monocytes"
+  ],
+  [
+   "netherlands",
+   "ligands"
+  ],
+  [
+   "tdp-43 proteinopathies",
+   "occupations"
+  ],
+  [
+   "mitophagy",
+   "manganese"
+  ]
+ ]
+}
