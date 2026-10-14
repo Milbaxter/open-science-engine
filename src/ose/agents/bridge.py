@@ -1,15 +1,16 @@
 """Bridge agent: find research groups that sit close in meaning but rarely
 cite each other, and ask the LLM what links them (Swanson-style A–B–C).
 
-1. topic maps for each seed query (pre-cutoff) -> research groups
+1. topic maps for each seed query (pre-cutoff; future-derived fields scrubbed) -> research groups
 2. score group pairs: near on the science map, few citations between them
-3. LLM reads both groups' core/rising/newest papers, proposes cross-group pairs
+3. LLM reads both groups' core/newest/bridge papers, proposes cross-group pairs
 4. keep candidates nobody has co-mentioned before the cutoff, top-k by confidence
 """
 
 import math
 
 from ..llm import LLMError, complete_json
+from .plain_llm import NAMING
 
 PAIRS_PER_RUN = 12
 PROMPT = """You are hunting for undiscovered connections in {disease} research.
@@ -25,15 +26,16 @@ GROUP B: {name_b}
 Propose {n} hypotheses, each linking one specific entity typical of group A
 (drug, gene, protein, pathway, cell type, exposure, biomarker...) to one specific
 entity typical of group B, which you predict upcoming {disease} papers will
-connect. Use names as written in abstracts; synonyms as "name1 | name2".
-Avoid links that are already well known.
+connect. Avoid links that are already well known.
+
+{naming}
 
 Return a JSON list: {{"a": str, "b": str, "relation": str, "mechanism": str, "support_ids": [paper ids], "confidence": 0-1}}"""
 
 
 def _papers(group: dict, per_lens: int = 4) -> str:
     seen, lines = set(), []
-    for lens in ("core", "rising", "newest", "bridges"):
+    for lens in ("core", "newest", "bridges"):
         for p in (group.get("lenses") or {}).get(lens, [])[:per_lens]:
             if p["id"] not in seen:
                 seen.add(p["id"])
@@ -69,7 +71,7 @@ def propose(task, sb, seed=0):
     maps = [sb.topics(q, papers=1000, abstracts="none") for q in task.seed_queries]
     cands = []
     for score, ga, gb in bridge_pairs(maps)[seed * PAIRS_PER_RUN:(seed + 1) * PAIRS_PER_RUN]:
-        prompt = PROMPT.format(disease=task.disease, cutoff=task.cutoff, n=4,
+        prompt = PROMPT.format(disease=task.disease, cutoff=task.cutoff, n=4, naming=NAMING,
                                name_a=ga["name"], papers_a=_papers(ga),
                                name_b=gb["name"], papers_b=_papers(gb))
         try:
@@ -88,7 +90,8 @@ def propose(task, sb, seed=0):
         if key in seen:
             continue
         seen.add(key)
-        if sb.count(h["a"], h["b"]) == 0:  # agent-side novelty check, pre-cutoff only
+        # agent-side checks, pre-cutoff only: both names are real terms, the pair is unreported
+        if all(sb.count(t, in_disease=False) for t in (h["a"], h["b"])) and sb.count(h["a"], h["b"]) == 0:
             out.append(h)
         if len(out) == task.k:
             break

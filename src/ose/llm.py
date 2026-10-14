@@ -28,6 +28,10 @@ def complete(prompt: str, model: str, system: str = "You are a careful biomedica
         raise LLMError((r.stdout + r.stderr)[:500])
     if out.get("is_error"):
         raise LLMError(str(out.get("result"))[:500])
+    # leakage rule: only the requested (pre-cutoff) model may have answered
+    used = list((out.get("modelUsage") or {}).keys())
+    if not used or any(not u.startswith(model) for u in used):
+        raise LLMError(f"model mismatch: asked {model}, CLI used {used}")
     TOTAL_COST["usd"] += out.get("total_cost_usd") or 0
     TOTAL_COST["calls"] += 1
     return out.get("result") or ""

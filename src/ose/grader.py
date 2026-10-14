@@ -1,6 +1,7 @@
 """Grade hypotheses against the hidden post-cutoff literature.
 
 Per hypothesis (A, relation, B):
+  valid     A and B each appear verbatim in some pre-cutoff paper  (else score 0)
   novel     no pre-cutoff paper mentions disease + A + B           (else score 0)
   emerged   >=1 post-cutoff paper mentions disease + A + B          (mechanical signal)
   confirmed two LLM judges read those papers: +1 supported, -1 contradicted, 0 untested
@@ -12,7 +13,7 @@ import math
 
 from .api import Api
 from .llm import LLMError, complete_json
-from .sandbox import boolean_query
+from .sandbox import boolean_query, term_clause
 from .task import Task
 
 JUDGE_PROMPT = """A research hypothesis was made before {cutoff} about {disease}:
@@ -70,8 +71,11 @@ def grade(task: Task, hyps: list[dict], use_judge: bool = True, api: Api | None 
         nb = api.count(boolean_query(task, [h["b"]]), **pre_kw)
         p = (na + 1) / (n_all + 1) * (nb + 1) / (n_all + 1)
         surprise = min(8.0, -math.log10(p))
-        novel, emerged = pre == 0, post > 0
-        row = {**h, "pre": pre, "post": post, "n_a": na, "n_b": nb, "novel": novel,
+        # a term nobody ever wrote can't be confirmed by keyword search, and would make
+        # "novel" trivially true; such hypotheses are invalid and score 0
+        valid = all(api.count(term_clause(t), **pre_kw) > 0 for t in (h["a"], h["b"]))
+        novel, emerged = valid and pre == 0, post > 0
+        row = {**h, "pre": pre, "post": post, "n_a": na, "n_b": nb, "valid": valid, "novel": novel,
                "emerged": emerged, "surprise": round(surprise, 3)}
         row["mech_score"] = round(novel * emerged * surprise, 3)
         if use_judge and novel and emerged:
@@ -84,6 +88,7 @@ def grade(task: Task, hyps: list[dict], use_judge: bool = True, api: Api | None 
     brier = sum((float(r.get("confidence", 0.5)) - t) ** 2 for r, t in zip(rows, target)) / max(1, len(rows))
     return {
         "n": len(rows),
+        "valid": sum(r["valid"] for r in rows),
         "novel": sum(r["novel"] for r in rows),
         "emerged": sum(r["novel"] and r["emerged"] for r in rows),
         "confirmed": sum(r.get("confirmed", 0) == 1 for r in rows),

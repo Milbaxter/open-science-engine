@@ -7,6 +7,10 @@ API's year filters and by scrubbing any dated record that slips through.
 from .api import Api
 from .task import Task
 
+# Fields computed from today's snapshot, i.e. with post-cutoff knowledge baked in:
+# citation counts (include later citers) and the "rising" lens (recent momentum).
+FUTURE_FIELDS = {"citations", "cited_by_count", "rising"}
+
 
 class Sandbox:
     def __init__(self, task: Task, api: Api | None = None):
@@ -26,7 +30,7 @@ class Sandbox:
         if isinstance(obj, list):
             return [self._scrub(x) for x in obj if not (isinstance(x, dict) and not self._visible(x))]
         if isinstance(obj, dict):
-            return {k: self._scrub(v) for k, v in obj.items()}
+            return {k: self._scrub(v) for k, v in obj.items() if k not in FUTURE_FIELDS}
         return obj
 
     def _years(self, year_from=None):
