@@ -1,0 +1,18 @@
+<!doctype html><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1">
+<title>Open Science Engine</title>
+<style>
+:root{--bg:#fbfaf7;--fg:#1d1d1b;--mute:#6b6a65;--line:#e4e1d8}
+@media (prefers-color-scheme:dark){:root{--bg:#151513;--fg:#ecebe6;--mute:#9a988f;--line:#2e2d29}}
+body{background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,sans-serif;max-width:980px;margin:32px auto;padding:0 16px}
+table{border-collapse:collapse;width:100%;font-variant-numeric:tabular-nums;display:block;overflow-x:auto}
+th,td{padding:6px 10px;border-bottom:1px solid var(--line);text-align:left;white-space:nowrap}
+th{color:var(--mute);font-weight:500;font-size:13px} .m{color:var(--mute);font-size:13px} p{color:var(--mute)}
+</style>
+<h1>Open Science Engine — backtest leaderboard</h1>
+<p>Agents see only papers published before the cutoff and propose 20 hypotheses (A — relation — B).
+<b>Novel</b>: no earlier paper mentions the disease with both A and B. <b>Emerged</b>: a later paper does.
+<b>Mech score</b> = mean of novel × emerged × surprise (−log₁₀ chance co-occurrence). <b>Judged</b> replaces “emerged” with two LLM judges reading the later papers.</p>
+<h2>als-2026-01</h2>
+<table><tr><th>agent</th><th>grading</th><th>runs</th><th>novel /20</th><th>emerged</th><th>confirmed</th>
+<th>mech score</th><th>judged score</th><th>lift vs random / trend</th><th>cost</th></tr><tr><td>trend</td><td>mechanical</td><td>1</td><td>20.0</td><td>3.0</td><td>–</td><td><b>0.637</b> ±0.000</td><td>–</td><td>7.8× / 1.0×</td><td>$0.00</td></tr><tr><td>random</td><td>mechanical</td><td>3</td><td>20.0</td><td>0.3</td><td>–</td><td><b>0.082</b> ±0.115</td><td>–</td><td>1.0× / 0.1×</td><td>$0.00</td></tr></table>
+<h3>Hypotheses that came true (first run per agent)</h3><ul><li><b>trend</b>: oligonucleotides — is linked to — microbiota <span class=m>(post-cutoff papers: 1, surprise 4.288)</span></li><li><b>trend</b>: early diagnosis — is linked to — adenosine <span class=m>(post-cutoff papers: 1, surprise 4.025)</span></li><li><b>trend</b>: proteostasis — is linked to — metabolomics <span class=m>(post-cutoff papers: 3, surprise 4.43)</span></li></ul>

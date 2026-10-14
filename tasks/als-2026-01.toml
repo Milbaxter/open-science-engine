@@ -1,0 +1,30 @@
+# Backtest task: agents see only papers published before `cutoff`;
+# hypotheses are graded on papers published from `cutoff` to `window_end`.
+id = "als-2026-01"
+disease = "amyotrophic lateral sclerosis"
+# keyword clause that pins every count/grade to this disease
+disease_query = '("amyotrophic lateral sclerosis" OR "motor neuron disease" OR "motor neurone disease")'
+cutoff = "2026-01-01"
+window_end = "2026-10-14"
+k = 20
+# models must have a training cutoff before `cutoff` (Sonnet 4.5 / Haiku 4.5: 2025-07)
+model = "claude-sonnet-4-5"
+judge_models = ["claude-sonnet-4-5", "claude-haiku-4-5"]
+seed_queries = [
+  "amyotrophic lateral sclerosis pathogenesis",
+  "ALS TDP-43 proteinopathy",
+  "C9orf72 repeat expansion ALS",
+  "SOD1 mutation motor neuron degeneration",
+  "FUS mutation ALS",
+  "ALS neuroinflammation microglia astrocytes",
+  "ALS drug repurposing clinical trial",
+  "ALS biomarkers neurofilament light chain",
+  "ALS mitochondrial dysfunction oxidative stress",
+  "ALS RNA metabolism stress granules",
+  "ALS excitotoxicity glutamate",
+  "ALS autophagy protein aggregation",
+  "ALS gut microbiome metabolism",
+  "ALS antisense oligonucleotide gene therapy",
+  "ALS frontotemporal dementia spectrum",
+  "motor neuron disease epidemiology environmental risk factors",
+]
