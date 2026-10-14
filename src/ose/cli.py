@@ -25,6 +25,15 @@ def main() -> None:
     m = sub.add_parser("mcp", help="serve sandbox tools over MCP (stdio)")
     m.add_argument("--task", default="als-2026-01")
 
+    pl = sub.add_parser("pool", help="build the shared candidate-pair pool for ranking")
+    pl.add_argument("--task", default="als-2026-01")
+    pl.add_argument("--n", type=int, default=500)
+
+    rk = sub.add_parser("rank", help="score the pool with a ranker and compute AUC")
+    rk.add_argument("--agent", required=True, help="random | popularity | trend | llm")
+    rk.add_argument("--task", default="als-2026-01")
+    rk.add_argument("--seed", type=int, default=0)
+
     sub.add_parser("label", help="export judged items for hand-labelling")
     sub.add_parser("agree", help="judge vs human agreement")
 
@@ -34,7 +43,13 @@ def main() -> None:
         return label.export() if a.cmd == "label" else label.agree()
     from .task import load_task
 
-    if a.cmd == "corpus":
+    if a.cmd == "pool":
+        from .rank import build_pool
+        build_pool(load_task(a.task), n=a.n)
+    elif a.cmd == "rank":
+        from .rank import run_rank
+        run_rank(load_task(a.task), a.agent, a.seed)
+    elif a.cmd == "corpus":
         from .corpus import build
         build(load_task(a.task))
     elif a.cmd == "entities":

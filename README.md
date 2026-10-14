@@ -20,7 +20,22 @@ uv run ose run --agent bridge
 uv run ose board                  # -> leaderboard/index.html
 ```
 
-## Scoring
+## Ranking benchmark (the main score)
+"Propose 20" gives only 0–3 hits, which is too noisy to compare agents. So every ranker scores the **same pool**
+(Science4Cast-style):
+```bash
+uv run ose pool --n 500           # ~1.7 h at the API limit; cached, resumable
+uv run ose rank --agent random --seed 0
+uv run ose rank --agent popularity
+uv run ose rank --agent trend
+uv run ose rank --agent llm       # Sonnet 4.5 via your Claude subscription
+```
+- **Pool:** random pairs among the 300 most frequent pre-cutoff entities that were never co-mentioned with the disease before the cutoff.
+- **Label:** whether at least one paper after the cutoff mentions both with the disease.
+- **Metric:** AUC with a bootstrap 95% CI, plus average precision and precision@50.
+- **Adding a ranker:** write `def name(task, pairs, seed) -> list[float]` in `rankers.py`.
+
+## Proposal benchmark scoring
 Every hypothesis is `A —relation→ B`. With D = the disease keyword clause:
 - **novel**: 0 papers before the cutoff match `D AND A AND B`. If it isn't novel, the score is 0.
 - **emerged**: at least 1 paper after the cutoff matches. This is the mechanical signal.

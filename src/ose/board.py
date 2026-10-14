@@ -50,6 +50,25 @@ def render():
 <th>mech score</th><th>judged score</th><th>lift vs random / trend</th><th>cost</th></tr>{''.join(rows)}</table>
 <h3>Hypotheses that came true (first run per agent)</h3><ul>{''.join(hyps) or '<li>none yet</li>'}</ul>""")
 
+    rank_by_task = defaultdict(lambda: defaultdict(list))
+    for f in sorted((ROOT / "results").glob("*/rank/*.json")):
+        r = json.loads(f.read_text())
+        rank_by_task[r["task"]][r["agent"]].append(r)
+    rank_sections = []
+    for task, agents in rank_by_task.items():
+        rows = []
+        for agent, runs in sorted(agents.items(), key=lambda kv: -mean(r["auc"] for r in kv[1])):
+            r0 = runs[0]
+            rows.append(f"<tr><td>{html.escape(agent)}</td><td>{len(runs)}</td>"
+                        f"<td><b>{mean(r['auc'] for r in runs):.3f}</b></td>"
+                        f"<td>{r0['auc_ci'][0]:.3f}–{r0['auc_ci'][1]:.3f}</td>"
+                        f"<td>{mean(r['ap'] for r in runs):.3f}</td><td>{mean(r['p_at_50'] for r in runs):.2f}</td>"
+                        f"<td>{r0['base_rate']:.2f}</td><td>${mean(r['usd'] for r in runs):.2f}</td></tr>")
+        rank_sections.append(f"""<h2>{html.escape(task)} — ranking benchmark ({runs[0]['n']} pairs)</h2>
+<table><tr><th>ranker</th><th>seeds</th><th>AUC</th><th>95% CI (seed 0)</th><th>avg precision</th>
+<th>P@50</th><th>base rate</th><th>cost</th></tr>{''.join(rows)}</table>""")
+    sections = rank_sections + sections
+
     out = ROOT / "leaderboard" / "index.html"
     out.parent.mkdir(exist_ok=True)
     out.write_text(f"""<!doctype html><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1">
@@ -63,7 +82,9 @@ th,td{{padding:6px 10px;border-bottom:1px solid var(--line);text-align:left;whit
 th{{color:var(--mute);font-weight:500;font-size:13px}} .m{{color:var(--mute);font-size:13px}} p{{color:var(--mute)}}
 </style>
 <h1>Open Science Engine — backtest leaderboard</h1>
-<p>Agents see only papers published before the cutoff and propose 20 hypotheses (A — relation — B).
+<p><b>Ranking benchmark</b>: every ranker scores the same pool of entity pairs never mentioned together with the disease before the cutoff.
+AUC = chance a pair that later got co-mentioned is ranked above one that didn't (0.5 = guessing).</p>
+<p><b>Proposal benchmark</b>: agents see only papers published before the cutoff and propose 20 hypotheses (A — relation — B).
 <b>Novel</b>: no earlier paper mentions the disease with both A and B. <b>Emerged</b>: a later paper does.
 <b>Mech score</b> = mean of novel × emerged × surprise (−log₁₀ chance co-occurrence). <b>Judged</b> replaces “emerged” with two LLM judges reading the later papers.</p>
 {''.join(sections)}""")
